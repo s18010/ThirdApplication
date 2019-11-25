@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ThirdApplication</string>
+    <string name="title_main">測定記録</string>
+    <string name="category_sex">性別</string>
+    <string name="category_age">年齢</string>
+    <string name="value_name">テスト　太郎</string>
+    <string name="value_sex">男</string>
+    <string name="value_age">42歳</string>
+    <string name="editButton">ユーザー情報を編集する</string>
+    <string name="editBodyInfoButton">身長・体重を入力する</string>
+    <string name="category_height">身長</string>
+    <string name="category_weight">体重</string>
+    <string name="value_height">160cm</string>
+    <string name="value_weight">52.5kg</string>
+    <string name="title_userinfo">ユーザ情報</string>
+    <string name="category_name">氏名</string>
+    <string name="saveButton">保存する</string>
+    <string name="blank" />
+    <string name="male">男</string>
+    <string name="female">女</string>
+</resources>
