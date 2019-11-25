@@ -15,18 +15,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         initialize()
     }
-
     private fun initialize() {
         val pref = getSharedPreferences("PROFILE", Context.MODE_PRIVATE)
         val name = pref.getString("NAME", "テスト 太郎")
         val sex = pref.getString("SEX", "男")
         val age = pref.getInt("AGE", 42)
         val height = pref.getInt("HEIGHT", 160)
-        val weight = pref.getFloat("WEIGHT", 52.5f)
+//        val weight = pref.getFloat("WEIGHT", 52.5f)
+        val weight = pref.getInt("WEIGHT", 52)
 
         value_name.text = name
         value_sex.text = sex
         value_age.text = age.toString()
+        value_height.text = height.toString()
+        value_weight.text = weight.toString()
 
         editProfileButton.setOnClickListener { onEditProfileButtonTapped(it) }
         editBodyInfoButton.setOnClickListener { onEditBodyInfoButtonTapped(it) }

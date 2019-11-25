@@ -35,7 +35,7 @@ class EditProfileActivity : AppCompatActivity() {
         val selectedSex = sexOptions.setOnCheckedChangeListener { _, checkedId ->
             findViewById<RadioButton>(checkedId).text
         }
-        var selectedAge: Int = 0
+        var selectedAge = 0
 
         ageSpinner.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {

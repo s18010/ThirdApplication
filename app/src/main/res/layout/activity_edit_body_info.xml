@@ -26,7 +26,7 @@
         android:layout_marginTop="180dp"
         android:text="@string/category_height"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView13"
+        app:layout_constraintEnd_toStartOf="@+id/value_height"
         app:layout_constraintHorizontal_bias="0.29"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:text="@string/category_weight"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView14"
+        app:layout_constraintEnd_toStartOf="@+id/value_weight"
         app:layout_constraintHorizontal_bias="0.29"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -58,7 +58,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/value_height"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="92dp"
@@ -70,7 +70,7 @@
         app:layout_constraintVertical_bias="0.252" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/value_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="92dp"
@@ -80,4 +80,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.396" />
+
+    <SeekBar
+        android:id="@+id/heightSeekBar"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="28dp"
+        android:max="200"
+        android:progress="160"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/value_height" />
+
+    <SeekBar
+        android:id="@+id/weightSeekBar"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="52dp"
+        android:max="200"
+        android:progress="59"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/value_weight" />
 </androidx.constraintlayout.widget.ConstraintLayout>
