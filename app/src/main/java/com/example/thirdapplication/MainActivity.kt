@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         initialize()
     }
+
     private fun initialize() {
         val pref = getSharedPreferences("PROFILE", Context.MODE_PRIVATE)
         val name = pref.getString("NAME", "テスト 太郎")
@@ -24,24 +25,24 @@ class MainActivity : AppCompatActivity() {
 //        val weight = pref.getFloat("WEIGHT", 52.5f)
         val weight = pref.getInt("WEIGHT", 52)
 
+        val ageText = "${age}歳"
+        val heightText = "${height}cm"
+        val weightText = "${weight}kg"
+
         value_name.text = name
         value_sex.text = sex
-        value_age.text = age.toString()
-        value_height.text = height.toString()
-        value_weight.text = weight.toString()
+        value_age.text = ageText
+        value_height.text = heightText
+        value_weight.text = weightText
 
-        editProfileButton.setOnClickListener { onEditProfileButtonTapped(it) }
-        editBodyInfoButton.setOnClickListener { onEditBodyInfoButtonTapped(it) }
-    }
-
-    private fun onEditProfileButtonTapped(view: View?) {
-        val intent = Intent(this, EditProfileActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun onEditBodyInfoButtonTapped(view: View?) {
-        val intent = Intent(this, EditBodyInfoActivity::class.java)
-        startActivity(intent)
+        editProfileButton.setOnClickListener {
+            val intent = Intent(this, EditProfileActivity::class.java)
+            startActivity(intent)
+        }
+        editBodyInfoButton.setOnClickListener {
+            val intent = Intent(this, EditBodyInfoActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onResume() {

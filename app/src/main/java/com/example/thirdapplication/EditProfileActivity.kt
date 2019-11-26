@@ -26,8 +26,6 @@ class EditProfileActivity : AppCompatActivity() {
         val age = pref.getInt("AGE", 0)
 
         nameInput.setText(name)
-
-
     }
 
     private fun onSaveButtonTapped() {

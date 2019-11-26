@@ -27,10 +27,13 @@ class EditBodyInfoActivity : AppCompatActivity() {
 //        val weight = pref.getFloat("WEIGHT", 52.5f)
         val weight = pref.getInt("WEIGHT", 52)
 
-        value_height.text = height.toString()
+        val heightText = "${height}cm"
+        val weightText = "${weight}kg"
+
+        value_height.text = heightText
         heightSeekBar.progress = height
 
-        value_weight.text = weight.toString()
+        value_weight.text = weightText
         weightSeekBar.progress = weight
 
         heightSeekBar.setOnSeekBarChangeListener(
