@@ -12,6 +12,8 @@ import kotlinx.android.synthetic.main.activity_main.value_height
 import kotlinx.android.synthetic.main.activity_main.value_weight
 
 class EditBodyInfoActivity : AppCompatActivity() {
+    private var height: Int = 0
+    private var weight: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,18 +25,14 @@ class EditBodyInfoActivity : AppCompatActivity() {
 
     private fun seekBarHandler() {
         val pref = getSharedPreferences("PROFILE", Context.MODE_PRIVATE)
-        val height = pref.getInt("HEIGHT", 160)
-//        val weight = pref.getFloat("WEIGHT", 52.5f)
-        val weight = pref.getInt("WEIGHT", 52)
+        height = pref.getInt("HEIGHT", 160)
+        weight = pref.getInt("WEIGHT", 52)
 
-        val heightText = "${height}cm"
-        val weightText = "${weight}kg"
-
-        value_height.text = heightText
+        value_height.text = "%dcm".format(height)
         heightSeekBar.progress = height
 
-        value_weight.text = weightText
-        weightSeekBar.progress = weight
+        value_weight.text = "%dkg".format(weight / 10)
+        weightSeekBar.progress = weight / 10
 
         heightSeekBar.setOnSeekBarChangeListener(
             object : SeekBar.OnSeekBarChangeListener {
@@ -43,7 +41,8 @@ class EditBodyInfoActivity : AppCompatActivity() {
                     progress: Int,
                     fromUser: Boolean
                 ) {
-                    value_height.text = progress.toString()
+                    value_height.text = "%dcm".format(progress)
+                    height = progress
                 }
 
                 override fun onStartTrackingTouch(seekBar: SeekBar?) {}
@@ -55,11 +54,11 @@ class EditBodyInfoActivity : AppCompatActivity() {
             object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(
                     seekBar: SeekBar?,
-//                    progress: Float,
                     progress: Int,
                     fromUser: Boolean
                 ) {
-                    value_weight.text = progress.toString()
+                    value_weight.text = "%dkg".format(progress / 10)
+                    weight = progress
                 }
 
                 override fun onStartTrackingTouch(seekBar: SeekBar?) {}
@@ -72,8 +71,8 @@ class EditBodyInfoActivity : AppCompatActivity() {
         super.onPause()
         val pref = getSharedPreferences("PROFILE", Context.MODE_PRIVATE)
         pref.edit {
-            putInt("HEIGHT", value_height.text.toString().toInt())
-            putInt("WEIGHT", value_weight.text.toString().toInt())
+            putInt("HEIGHT", height)
+            putInt("WEIGHT", weight)
         }
     }
 

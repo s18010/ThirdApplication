@@ -18,4 +18,5 @@
     <string name="blank" />
     <string name="male">男</string>
     <string name="female">女</string>
+    <string name="height_unit">cm</string>
 </resources>

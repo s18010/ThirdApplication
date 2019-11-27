@@ -10,6 +10,8 @@ import kotlinx.android.synthetic.main.activity_edit_profile.*
 
 // edit name, sex, age
 class EditProfileActivity : AppCompatActivity() {
+    private var selectedAge: Int = 0
+    private var selectedSex: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,14 +28,10 @@ class EditProfileActivity : AppCompatActivity() {
         val age = pref.getInt("AGE", 0)
 
         nameInput.setText(name)
-    }
 
-    private fun onSaveButtonTapped() {
-        val pref = getSharedPreferences("PROFILE", Context.MODE_PRIVATE)
-        val selectedSex = sexOptions.setOnCheckedChangeListener { _, checkedId ->
-            findViewById<RadioButton>(checkedId).text
+        sexOptions.setOnCheckedChangeListener { _, checkedId ->
+            selectedSex = findViewById<RadioButton>(checkedId).text.toString()
         }
-        var selectedAge = 0
 
         ageSpinner.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
@@ -54,10 +52,15 @@ class EditProfileActivity : AppCompatActivity() {
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
+    }
+
+    private fun onSaveButtonTapped() {
+        val pref = getSharedPreferences("PROFILE", Context.MODE_PRIVATE)
+
 
         pref.edit {
             putString("NAME", nameInput.text.toString())
-            putString("SEX", selectedSex.toString())
+            putString("SEX", selectedSex)
             putInt("AGE", selectedAge)
         }
         finish()
