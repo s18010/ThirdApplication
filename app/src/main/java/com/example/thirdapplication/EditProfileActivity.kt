@@ -65,6 +65,4 @@ class EditProfileActivity : AppCompatActivity() {
         }
         finish()
     }
-
-
 }
