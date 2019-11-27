@@ -31,7 +31,7 @@ class EditBodyInfoActivity : AppCompatActivity() {
         value_height.text = "%dcm".format(height)
         heightSeekBar.progress = height
 
-        value_weight.text = "%dkg".format(weight / 10)
+        value_weight.text = "%.1fkg".format(weight.toDouble() / 10)
         weightSeekBar.progress = weight / 10
 
         heightSeekBar.setOnSeekBarChangeListener(
@@ -57,7 +57,7 @@ class EditBodyInfoActivity : AppCompatActivity() {
                     progress: Int,
                     fromUser: Boolean
                 ) {
-                    value_weight.text = "%dkg".format(progress / 10)
+                    value_weight.text = "%.1fkg".format(progress.toDouble() / 10)
                     weight = progress
                 }
 

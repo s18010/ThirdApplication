@@ -22,12 +22,11 @@ class MainActivity : AppCompatActivity() {
         val sex = pref.getString("SEX", "男")
         val age = pref.getInt("AGE", 42)
         val height = pref.getInt("HEIGHT", 160)
-//        val weight = pref.getFloat("WEIGHT", 52.5f)
-        val weight = pref.getInt("WEIGHT", 52)
+        val weight = pref.getInt("WEIGHT", 520)
 
-        val ageText = "${age}歳"
-        val heightText = "${height}cm"
-        val weightText = "${weight}kg"
+        val ageText = "%d歳".format(age)
+        val heightText = "%dcm".format(height)
+        val weightText = "%.1fkg".format(weight.toDouble() / 10)
 
         value_name.text = name
         value_sex.text = sex
