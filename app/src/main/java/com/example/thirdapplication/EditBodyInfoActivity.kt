@@ -7,7 +7,6 @@ import android.widget.SeekBar
 import androidx.core.content.edit
 import kotlinx.android.synthetic.main.activity_edit_body_info.*
 import kotlinx.android.synthetic.main.activity_edit_body_info.saveButton
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.value_height
 import kotlinx.android.synthetic.main.activity_main.value_weight
 
