@@ -18,7 +18,7 @@ class EditBodyInfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_body_info)
 
-        saveButton.setOnClickListener { onSaveButtonTapped() }
+        saveButton.setOnClickListener { finish() }
         seekBarHandler()
     }
 
@@ -73,9 +73,5 @@ class EditBodyInfoActivity : AppCompatActivity() {
             putInt("HEIGHT", height)
             putInt("WEIGHT", weight)
         }
-    }
-
-    private fun onSaveButtonTapped() {
-        finish()
     }
 }
